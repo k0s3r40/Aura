@@ -66,10 +66,10 @@
         app:layout_constraintVertical_bias="0.615" />
 
     <TextView
-        android:id="@+id/username_label"
+        android:id="@+id/email_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/username_email"
+        android:text="@string/email"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.108"
@@ -90,7 +90,7 @@
         app:layout_constraintVertical_bias="0.57" />
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/email"
         android:layout_width="349dp"
         android:layout_height="55dp"
         android:ems="10"
