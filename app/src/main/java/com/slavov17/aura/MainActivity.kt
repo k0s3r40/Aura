@@ -1,11 +1,20 @@
 package com.slavov17.aura
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.login)
+        // TODO: on login ok move to dashboard directly
+        if (true){
+            val home = Intent(this, DashBoard::class.java)
+            startActivity(home)
+        }
+        else{
+            setContentView(R.layout.login)
+        }
     }
 }
