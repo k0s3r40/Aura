@@ -2,6 +2,7 @@ package com.slavov17.aura
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 
 
@@ -12,9 +13,13 @@ class MainActivity : AppCompatActivity() {
         if (true){
             val home = Intent(this, DashBoard::class.java)
             startActivity(home)
+
         }
         else{
             setContentView(R.layout.login)
         }
+
     }
+
+
 }
