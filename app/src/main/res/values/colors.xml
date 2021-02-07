@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+<!--    GAUGE COLORS-->
+    <color name="gauge_green">#FF66C2A5</color>
+    <color name="gauge_yellow">#FFFDD448</color>
+    <color name="gauge_orange">#FFF5A947</color>
+    <color name="gauge_red">#FFD53E4F</color>
+    <color name="transparent">#FFFDD448</color>
+<!--    END GAUGE COLORS-->
+
     <color name="pink">#f09f9c</color>
     <color name="emerald">#32936f</color>
     <color name="crayola">#ffd166</color>

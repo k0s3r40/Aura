@@ -26,62 +26,57 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">
 
-        <View
-            android:id="@+id/eco_gauge"
+        <ImageView
+            android:id="@+id/eco2_arrow_canvas"
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:background="@drawable/gauge_background"
+            android:contentDescription="TODO"
+            android:rotation="-150"
+            android:tint="@color/transparent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.115"
+            app:layout_constraintHorizontal_bias="0.131"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.064" />
+            app:layout_constraintVertical_bias="0.064"
+            app:srcCompat="@drawable/ic_arrow_fat_center" />
 
-        <TextView
-            android:id="@+id/gauge_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/eco_gauge_label"
-            app:layout_constraintBottom_toBottomOf="@+id/eco_gauge"
-            app:layout_constraintEnd_toEndOf="@+id/eco_gauge"
-            app:layout_constraintHorizontal_bias="0.507"
-            app:layout_constraintStart_toEndOf="@+id/gauge_value"
-            app:layout_constraintStart_toStartOf="@+id/eco_gauge"
-            app:layout_constraintTop_toTopOf="@+id/eco_gauge"
-            app:layout_constraintVertical_bias="0.147" />
+        <ImageView
+            android:id="@+id/eco2_gauge_back"
+            android:layout_width="159dp"
+            android:layout_height="159dp"
+            app:srcCompat="@drawable/ic_gauge_around"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.134"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.066"
+            android:contentDescription="TODO" />
 
         <TextView
             android:id="@+id/gauge_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/no_data_label"
-            app:layout_constraintBottom_toBottomOf="@+id/eco_gauge"
-            app:layout_constraintEnd_toEndOf="@+id/eco_gauge"
-            app:layout_constraintHorizontal_bias="0.513"
-            app:layout_constraintStart_toStartOf="@+id/eco_gauge"
-            app:layout_constraintTop_toTopOf="@+id/eco_gauge"
-            app:layout_constraintVertical_bias="0.851" />
+            app:layout_constraintBottom_toBottomOf="@+id/eco2_gauge_back"
+            app:layout_constraintEnd_toEndOf="@+id/eco2_gauge_back"
+            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintStart_toStartOf="@+id/eco2_gauge_back"
+            app:layout_constraintTop_toTopOf="@+id/eco2_gauge_back"
+            app:layout_constraintVertical_bias="0.914" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/eco2_arrow_canvas"
-                android:layout_width="160dp"
-                android:layout_height="160dp"
-                android:contentDescription="TODO"
-                android:tint="@color/pink"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.116"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.064"
-                app:srcCompat="@drawable/ic_arrow_fat_center" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/gauge_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/eco_gauge_label"
+            app:layout_constraintBottom_toBottomOf="@+id/eco2_gauge_back"
+            app:layout_constraintEnd_toEndOf="@+id/eco2_gauge_back"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="@+id/eco2_gauge_back"
+            app:layout_constraintTop_toTopOf="@+id/eco2_gauge_back"
+            app:layout_constraintVertical_bias="0.121" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

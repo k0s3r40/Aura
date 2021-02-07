@@ -9,7 +9,11 @@
                 android:bottomRightRadius="100pt">
             </corners>
             <stroke android:width="10dip" android:color="@color/bluejeans"/>
-
+            <gradient
+                android:centerColor="#00FFFFFF"
+                android:endColor="#00FFFFFF"
+                android:startColor="#00FFFFFF"
+                android:type="sweep" />
         </shape>
     </item>
 </selector>
