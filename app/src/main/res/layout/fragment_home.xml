@@ -6,25 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <TextView
-        android:id="@+id/text_home"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/eco2_gauge_container"
+        android:layout_width="168dp"
+        android:layout_height="161dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.065"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.028">
 
         <ImageView
             android:id="@+id/eco2_arrow_canvas"
@@ -35,24 +26,24 @@
             android:tint="@color/transparent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.131"
+            app:layout_constraintHorizontal_bias="0.453"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.064"
+            app:layout_constraintVertical_bias="0.235"
             app:srcCompat="@drawable/ic_arrow_fat_center" />
 
         <ImageView
             android:id="@+id/eco2_gauge_back"
             android:layout_width="159dp"
             android:layout_height="159dp"
-            app:srcCompat="@drawable/ic_gauge_around"
+            android:contentDescription="TODO"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.134"
+            app:layout_constraintHorizontal_bias="0.451"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.066"
-            android:contentDescription="TODO" />
+            app:layout_constraintVertical_bias="0.235"
+            app:srcCompat="@drawable/ic_gauge_around" />
 
         <TextView
             android:id="@+id/gauge_value"
@@ -76,6 +67,87 @@
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="@+id/eco2_gauge_back"
             app:layout_constraintTop_toTopOf="@+id/eco2_gauge_back"
+            app:layout_constraintVertical_bias="0.121" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/text_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.82" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/voc_gauge_container"
+        android:layout_width="168dp"
+        android:layout_height="161dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.86"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.028">
+
+        <ImageView
+            android:id="@+id/voc_arrow_canvas"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:contentDescription="TODO"
+            android:rotation="-150"
+            android:tint="@color/transparent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.453"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.235"
+            app:srcCompat="@drawable/ic_arrow_fat_center" />
+
+        <ImageView
+            android:id="@+id/voc_gauge_back"
+            android:layout_width="159dp"
+            android:layout_height="159dp"
+            android:contentDescription="TODO"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.451"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.235"
+            app:srcCompat="@drawable/ic_gauge_around" />
+
+        <TextView
+            android:id="@+id/voc_gauge_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_data_label"
+            app:layout_constraintBottom_toBottomOf="@+id/voc_gauge_back"
+            app:layout_constraintEnd_toEndOf="@+id/voc_gauge_back"
+            app:layout_constraintHorizontal_bias="0.509"
+            app:layout_constraintStart_toStartOf="@+id/voc_gauge_back"
+            app:layout_constraintTop_toTopOf="@+id/voc_gauge_back"
+            app:layout_constraintVertical_bias="0.9" />
+
+        <TextView
+            android:id="@+id/voc_gauge_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/voc_gauge_label"
+            app:layout_constraintBottom_toBottomOf="@+id/voc_gauge_back"
+            app:layout_constraintEnd_toEndOf="@+id/voc_gauge_back"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="@+id/voc_gauge_back"
+            app:layout_constraintTop_toTopOf="@+id/voc_gauge_back"
             app:layout_constraintVertical_bias="0.121" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

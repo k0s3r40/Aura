@@ -35,11 +35,17 @@ class HomeFragment : Fragment() {
             val eco_2_arrow_canvas: ImageView = root.findViewById(R.id.eco2_arrow_canvas)
             val eco_2_gauge_back: ImageView = root.findViewById(R.id.eco2_gauge_back)
 
+            val voc_arrow_canvas : ImageView = root.findViewById(R.id.voc_arrow_canvas)
+            val voc_gauge_back : ImageView = root.findViewById(R.id.voc_gauge_back)
 
             for (i in 1..300) {
                 eco_2_arrow_canvas.setColorFilter(get_colors(i));
                 eco_2_gauge_back.setColorFilter(get_colors(i));
                 eco_2_arrow_canvas.rotation = -150 + i.toFloat()
+
+                voc_arrow_canvas.setColorFilter(get_colors(i));
+                voc_gauge_back.setColorFilter(get_colors(i));
+                voc_arrow_canvas.rotation = -150 + i.toFloat()
                 Thread.sleep(3)
             }
 
@@ -48,6 +54,9 @@ class HomeFragment : Fragment() {
                 eco_2_arrow_canvas.setColorFilter(get_colors(i));
                 eco_2_gauge_back.setColorFilter(get_colors(i));
 
+                voc_arrow_canvas.setColorFilter(get_colors(i));
+                voc_gauge_back.setColorFilter(get_colors(i));
+                voc_arrow_canvas.rotation = -150 + i.toFloat()
                 Thread.sleep(1)
 
             }

@@ -22,6 +22,7 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="eco_gauge_label">eCO2</string>
+    <string name="voc_gauge_label">VOC</string>
     <string name="no_data_label">No data</string>
     <string name="menu_slideshow">Slideshow</string>
 </resources>
