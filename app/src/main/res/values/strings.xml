@@ -25,6 +25,8 @@
     <string name="voc_gauge_label">VOC</string>
     <string name="hum_gauge_label">Humidity</string>
     <string name="pressure_gauge_label">BP</string>
+    <string name="temp_gauge_label">Temp</string>
     <string name="no_data_label">No data</string>
+    <string name="temperature_placeholder">27°</string>
     <string name="menu_slideshow">Slideshow</string>
 </resources>
