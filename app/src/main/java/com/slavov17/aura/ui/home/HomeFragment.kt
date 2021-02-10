@@ -38,6 +38,14 @@ class HomeFragment : Fragment() {
             val voc_arrow_canvas : ImageView = root.findViewById(R.id.voc_arrow_canvas)
             val voc_gauge_back : ImageView = root.findViewById(R.id.voc_gauge_back)
 
+
+            val hum_arrow_canvas : ImageView = root.findViewById(R.id.hum_arrow_canvas)
+            val hum_gauge_back : ImageView = root.findViewById(R.id.hum_gauge_back)
+
+            val pressure_arrow_canvas : ImageView = root.findViewById(R.id.pressure_arrow_canvas)
+            val pressure_gauge_back : ImageView = root.findViewById(R.id.pressure_gauge_back)
+
+
             for (i in 1..300) {
                 eco_2_arrow_canvas.setColorFilter(get_colors(i));
                 eco_2_gauge_back.setColorFilter(get_colors(i));
@@ -46,6 +54,15 @@ class HomeFragment : Fragment() {
                 voc_arrow_canvas.setColorFilter(get_colors(i));
                 voc_gauge_back.setColorFilter(get_colors(i));
                 voc_arrow_canvas.rotation = -150 + i.toFloat()
+
+                hum_arrow_canvas.setColorFilter(get_colors(i));
+                hum_gauge_back.setColorFilter(get_colors(i));
+                hum_arrow_canvas.rotation = -150 + i.toFloat()
+
+                pressure_arrow_canvas.setColorFilter(get_colors(i));
+                pressure_gauge_back.setColorFilter(get_colors(i));
+                pressure_arrow_canvas.rotation = -150 + i.toFloat()
+
                 Thread.sleep(3)
             }
 
@@ -57,6 +74,15 @@ class HomeFragment : Fragment() {
                 voc_arrow_canvas.setColorFilter(get_colors(i));
                 voc_gauge_back.setColorFilter(get_colors(i));
                 voc_arrow_canvas.rotation = -150 + i.toFloat()
+
+                hum_arrow_canvas.setColorFilter(get_colors(i));
+                hum_gauge_back.setColorFilter(get_colors(i));
+                hum_arrow_canvas.rotation = -150 + i.toFloat()
+
+                pressure_arrow_canvas.setColorFilter(get_colors(i));
+                pressure_gauge_back.setColorFilter(get_colors(i));
+                pressure_arrow_canvas.rotation = -150 + i.toFloat()
+
                 Thread.sleep(1)
 
             }

@@ -152,4 +152,134 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/hum_gauge_container"
+        android:layout_width="168dp"
+        android:layout_height="161dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.356">
+
+        <ImageView
+            android:id="@+id/hum_arrow_canvas"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:contentDescription="TODO"
+            android:rotation="-150"
+            android:tint="@color/transparent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.453"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.235"
+            app:srcCompat="@drawable/ic_arrow_fat_center" />
+
+        <ImageView
+            android:id="@+id/hum_gauge_back"
+            android:layout_width="159dp"
+            android:layout_height="159dp"
+            android:contentDescription="TODO"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.451"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.235"
+            app:srcCompat="@drawable/ic_gauge_around" />
+
+        <TextView
+            android:id="@+id/hum_gauge_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_data_label"
+            app:layout_constraintBottom_toBottomOf="@+id/hum_gauge_back"
+            app:layout_constraintEnd_toEndOf="@+id/hum_gauge_back"
+            app:layout_constraintHorizontal_bias="0.509"
+            app:layout_constraintStart_toStartOf="@+id/hum_gauge_back"
+            app:layout_constraintTop_toTopOf="@+id/hum_gauge_back"
+            app:layout_constraintVertical_bias="0.9" />
+
+        <TextView
+            android:id="@+id/hum_gauge_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hum_gauge_label"
+            app:layout_constraintBottom_toBottomOf="@+id/hum_gauge_back"
+            app:layout_constraintEnd_toEndOf="@+id/hum_gauge_back"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="@+id/hum_gauge_back"
+            app:layout_constraintTop_toTopOf="@+id/hum_gauge_back"
+            app:layout_constraintVertical_bias="0.121" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/pressure_gauge_container"
+        android:layout_width="168dp"
+        android:layout_height="161dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.864"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.356">
+
+        <ImageView
+            android:id="@+id/pressure_arrow_canvas"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:contentDescription="TODO"
+            android:rotation="-150"
+            android:tint="@color/transparent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.453"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.235"
+            app:srcCompat="@drawable/ic_arrow_fat_center" />
+
+        <ImageView
+            android:id="@+id/pressure_gauge_back"
+            android:layout_width="159dp"
+            android:layout_height="159dp"
+            android:contentDescription="TODO"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.451"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.235"
+            app:srcCompat="@drawable/ic_gauge_around" />
+
+        <TextView
+            android:id="@+id/pressure_gauge_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_data_label"
+            app:layout_constraintBottom_toBottomOf="@+id/pressure_gauge_back"
+            app:layout_constraintEnd_toEndOf="@+id/pressure_gauge_back"
+            app:layout_constraintHorizontal_bias="0.509"
+            app:layout_constraintStart_toStartOf="@+id/pressure_gauge_back"
+            app:layout_constraintTop_toTopOf="@+id/pressure_gauge_back"
+            app:layout_constraintVertical_bias="0.9" />
+
+        <TextView
+            android:id="@+id/pressure_gauge_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pressure_gauge_label"
+            app:layout_constraintBottom_toBottomOf="@+id/pressure_gauge_back"
+            app:layout_constraintEnd_toEndOf="@+id/pressure_gauge_back"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="@+id/pressure_gauge_back"
+            app:layout_constraintTop_toTopOf="@+id/pressure_gauge_back"
+            app:layout_constraintVertical_bias="0.121" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

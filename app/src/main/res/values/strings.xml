@@ -23,6 +23,8 @@
     <string name="menu_gallery">Gallery</string>
     <string name="eco_gauge_label">eCO2</string>
     <string name="voc_gauge_label">VOC</string>
+    <string name="hum_gauge_label">Humidity</string>
+    <string name="pressure_gauge_label">BP</string>
     <string name="no_data_label">No data</string>
     <string name="menu_slideshow">Slideshow</string>
 </resources>
