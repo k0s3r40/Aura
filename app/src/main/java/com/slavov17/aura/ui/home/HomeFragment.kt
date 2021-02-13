@@ -1,7 +1,6 @@
 package com.slavov17.aura.ui.home
 
-import android.graphics.drawable.Drawable
-import android.graphics.drawable.GradientDrawable
+import Gauge
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -31,19 +30,59 @@ class HomeFragment : Fragment() {
         homeViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
+        val eco_2_gauge = Gauge(
+                gauge_name = "eCO2",
+                red_value = 2000F..5000F,
+                orange_value = 1000F..1999F,
+                yellow_value = 400F..999F,
+                green_value = 0F..399F,
+                current_value = 0F,
+                min_value = 0F,
+                max_value = 5000F)
+
+        val voc_gauge = Gauge(
+                gauge_name = "VOC",
+                red_value = 1F..3F,
+                orange_value = 0.5F..0.99F,
+                yellow_value = 0.3F..0.49F,
+                green_value = 0F..2.99F,
+                current_value = 0F,
+                min_value = 0F,
+                max_value = 3F)
+
+        val humidity_gauge = Gauge(
+                gauge_name = "Humidity",
+                red_value =60F..100F,
+                orange_value = 51F..59F,
+                yellow_value = 0F..29F,
+                green_value = 30F..50F,
+                current_value = 0F,
+                min_value = 0F,
+                max_value = 100F)
+
+        val pressure_gauge = Gauge(
+                gauge_name = "BP",
+                red_value =2001F..3000F,
+                orange_value = 1501F..2000F,
+                yellow_value = 1014F..1500F,
+                green_value = 0F..1014F,
+                current_value = 0F,
+                min_value = 0F,
+                max_value = 3000F)
+
         Thread {
             val eco_2_arrow_canvas: ImageView = root.findViewById(R.id.eco2_arrow_canvas)
             val eco_2_gauge_back: ImageView = root.findViewById(R.id.eco2_gauge_back)
 
-            val voc_arrow_canvas : ImageView = root.findViewById(R.id.voc_arrow_canvas)
-            val voc_gauge_back : ImageView = root.findViewById(R.id.voc_gauge_back)
+            val voc_arrow_canvas: ImageView = root.findViewById(R.id.voc_arrow_canvas)
+            val voc_gauge_back: ImageView = root.findViewById(R.id.voc_gauge_back)
 
+            val hum_arrow_canvas: ImageView = root.findViewById(R.id.hum_arrow_canvas)
+            val hum_gauge_back: ImageView = root.findViewById(R.id.hum_gauge_back)
 
-            val hum_arrow_canvas : ImageView = root.findViewById(R.id.hum_arrow_canvas)
-            val hum_gauge_back : ImageView = root.findViewById(R.id.hum_gauge_back)
+            val pressure_arrow_canvas: ImageView = root.findViewById(R.id.pressure_arrow_canvas)
+            val pressure_gauge_back: ImageView = root.findViewById(R.id.pressure_gauge_back)
 
-            val pressure_arrow_canvas : ImageView = root.findViewById(R.id.pressure_arrow_canvas)
-            val pressure_gauge_back : ImageView = root.findViewById(R.id.pressure_gauge_back)
 
 
             for (i in 1..300) {
