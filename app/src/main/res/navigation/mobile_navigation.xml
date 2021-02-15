@@ -9,13 +9,13 @@
         android:id="@+id/nav_home"
         android:name="com.slavov17.aura.ui.dashboard.DashboardFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.slavov17.aura.ui.bluetooth.BluetoothFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_bluetooth" />
 
     <fragment
         android:id="@+id/nav_slideshow"
