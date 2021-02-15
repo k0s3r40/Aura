@@ -14,19 +14,19 @@ import com.slavov17.aura.R
 
 class DashboardFragment : Fragment() {
 
-    private lateinit var dashboard: Dashboard
+    private lateinit var dashboardViewModel: DashboardViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        dashboard =
-                ViewModelProvider(this).get(Dashboard::class.java)
+        dashboardViewModel =
+                ViewModelProvider(this).get(DashboardViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
         val textView: TextView = root.findViewById(R.id.text_home)
 
-        dashboard.text.observe(viewLifecycleOwner, Observer {
+        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         val eco_2_gauge = Gauge(
