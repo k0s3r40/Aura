@@ -19,8 +19,7 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
+
     <string name="eco_gauge_label">eCO2</string>
     <string name="voc_gauge_label">VOC</string>
     <string name="hum_gauge_label">Humidity</string>
@@ -28,5 +27,13 @@
     <string name="temp_gauge_label">Temp</string>
     <string name="no_data_label">No data</string>
     <string name="temperature_placeholder">27°</string>
+
+
+    <string name="menu_home">Dashboard</string>
+    <string name="menu_gallery">Bluetooth</string>
     <string name="menu_slideshow">Slideshow</string>
+
+    <string name="menu_dashboard">Dashboard</string>
+    <string name="menu_bluetooth">Bluetooth</string>
+
 </resources>
