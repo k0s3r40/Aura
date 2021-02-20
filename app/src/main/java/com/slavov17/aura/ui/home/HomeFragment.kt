@@ -48,7 +48,7 @@ class HomeFragment : Fragment() {
                 red_value = 1F..3F,
                 orange_value = 0.5F..0.99F,
                 yellow_value = 0.3F..0.49F,
-                green_value = 0F..2.99F,
+                green_value = 0F..0.29F,
                 current_value = 0F,
                 min_value = 0F,
                 max_value = 3F)
@@ -81,7 +81,7 @@ class HomeFragment : Fragment() {
 
             eco_2_gauge.current_value = 3000F
             eco_2_gauge.rotate_gauge()
-            voc_gauge.current_value = 1F
+            voc_gauge.current_value = 0.29F
             voc_gauge.rotate_gauge()
             humidity_gauge.current_value = 30F
             humidity_gauge.rotate_gauge()
