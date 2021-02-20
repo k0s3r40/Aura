@@ -1,16 +1,13 @@
-package com.slavov17.aura.ui.home
+package com.slavov17.aura.ui.bluetooth
 
-import android.media.Image
-import android.widget.ImageView
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.slavov17.aura.R
 
-class HomeViewModel : ViewModel() {
+class BluetoothViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+        value = "This is bluetooth Fragment"
     }
     val text: LiveData<String> = _text
 }

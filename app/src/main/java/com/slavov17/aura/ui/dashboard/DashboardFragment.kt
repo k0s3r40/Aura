@@ -1,4 +1,4 @@
-package com.slavov17.aura.ui.home
+package com.slavov17.aura.ui.dashboard
 
 import Gauge
 import android.os.Bundle
@@ -12,21 +12,21 @@ import androidx.lifecycle.ViewModelProvider
 import com.slavov17.aura.R
 
 
-class HomeFragment : Fragment() {
+class DashboardFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var dashboardViewModel: DashboardViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-                ViewModelProvider(this).get(HomeViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
+        dashboardViewModel =
+                ViewModelProvider(this).get(DashboardViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
         val textView: TextView = root.findViewById(R.id.text_home)
 
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
+        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         val eco_2_gauge = Gauge(
