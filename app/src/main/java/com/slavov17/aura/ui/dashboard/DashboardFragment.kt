@@ -77,7 +77,7 @@ class DashboardFragment : Fragment() {
                 min_value = 0F,
                 max_value = 3000F)
 
-        Thread {
+
 
             eco_2_gauge.current_value = 3000F
             eco_2_gauge.rotate_gauge()
@@ -88,7 +88,7 @@ class DashboardFragment : Fragment() {
             pressure_gauge.current_value = 1000F
             pressure_gauge.rotate_gauge()
 
-        }.start()
+
 
         return root
     }
