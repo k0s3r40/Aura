@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         val BleManager = BleManager()
 
-        BleManager.performScan(5000)
+        BleManager.performScan(10000)
 
         if (true){
             val home = Intent(this, DashBoard::class.java)

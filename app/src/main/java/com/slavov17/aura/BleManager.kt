@@ -11,33 +11,34 @@ import android.util.Log
 class BleManager() {
     private val TAG = "BleManager"
 
+    private val bluetoothAdapter: BluetoothAdapter? = BluetoothAdapter.getDefaultAdapter()
+    private val bluetoothLeScanner: BluetoothLeScanner = bluetoothAdapter!!.bluetoothLeScanner
+
     private val bleScanner = object : ScanCallback() {
         override fun onScanResult(callbackType: Int, result: ScanResult?) {
             super.onScanResult(callbackType, result)
-            Log.d("DeviceListActivity", "onScanResult: ${result?.device?.address} - ${result?.device?.name}")
+            Log.d(TAG, "onScanResult: ${result?.device?.address} - ${result?.device?.name}")
         }
 
         override fun onBatchScanResults(results: MutableList<ScanResult>?) {
             super.onBatchScanResults(results)
-            Log.d("DeviceListActivity", "onBatchScanResults:${results.toString()}")
+            Log.d(TAG, "onBatchScanResults:${results.toString()}")
         }
 
         override fun onScanFailed(errorCode: Int) {
             super.onScanFailed(errorCode)
-            Log.d("DeviceListActivity", "onScanFailed: $errorCode")
+            Log.d(TAG, "onScanFailed: $errorCode")
         }
 
     }
-    val bluetoothAdapter: BluetoothAdapter? = BluetoothAdapter.getDefaultAdapter()
-    val bluetoothLeScanner: BluetoothLeScanner = bluetoothAdapter!!.bluetoothLeScanner
 
-    fun startScan() {
+    private fun startScan() {
         Log.d(TAG, "SCAN starting")
         bluetoothLeScanner.startScan(bleScanner)
         Log.d(TAG, "SCAN ongoing")
     }
 
-    fun stopScan() {
+    private fun stopScan() {
         Log.d(TAG, "SCAN stopping")
         bluetoothLeScanner.stopScan(bleScanner)
         Log.d(TAG, "SCAN stopped")
