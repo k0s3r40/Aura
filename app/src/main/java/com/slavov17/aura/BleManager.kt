@@ -14,22 +14,12 @@ class BleManager() {
     private val bluetoothAdapter: BluetoothAdapter? = BluetoothAdapter.getDefaultAdapter()
     private val bluetoothLeScanner: BluetoothLeScanner = bluetoothAdapter!!.bluetoothLeScanner
 
-    private val bleScanner = object : ScanCallback() {
+    val bleScanner = object : ScanCallback() {
         override fun onScanResult(callbackType: Int, result: ScanResult?) {
-            super.onScanResult(callbackType, result)
+            Log.d(TAG, "TEEEEEST")
+//            super.onScanResult(callbackType, result)
             Log.d(TAG, "onScanResult: ${result?.device?.address} - ${result?.device?.name}")
         }
-
-        override fun onBatchScanResults(results: MutableList<ScanResult>?) {
-            super.onBatchScanResults(results)
-            Log.d(TAG, "onBatchScanResults:${results.toString()}")
-        }
-
-        override fun onScanFailed(errorCode: Int) {
-            super.onScanFailed(errorCode)
-            Log.d(TAG, "onScanFailed: $errorCode")
-        }
-
     }
 
     private fun startScan() {
