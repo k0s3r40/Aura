@@ -2,7 +2,7 @@ package com.slavov17.aura
 
 import android.bluetooth.BluetoothDevice
 
-class BLEAdapter(val device: BluetoothDevice) {
+class BleObject(val device: BluetoothDevice) {
     val name_placeholder = "Device"
 
     fun ble_name(): String? {

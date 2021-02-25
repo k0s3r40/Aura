@@ -2,15 +2,11 @@ package com.slavov17.aura
 
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
-import android.bluetooth.BluetoothManager
 import android.bluetooth.le.BluetoothLeScanner
 import android.bluetooth.le.ScanCallback
 import android.bluetooth.le.ScanResult
-import android.content.Context
-import android.util.ArraySet
 import android.util.Log
 import android.view.View
-import java.util.*
 import kotlin.collections.ArrayList
 
 class BleManager() {
@@ -20,7 +16,7 @@ class BleManager() {
     private val bluetoothLeScanner: BluetoothLeScanner = bluetoothAdapter!!.bluetoothLeScanner
 
 
-    var bleAdapters = ArrayList<BLEAdapter>()
+    var bleAdapters = ArrayList<BleObject>()
     var scannedDevices = mutableSetOf<BluetoothDevice>()
 
     val bleScanner = object : ScanCallback() {
@@ -62,10 +58,10 @@ class BleManager() {
         scannedDevices.clear()
     }
 
-    fun getAdapters(): ArrayList<BLEAdapter> {
+    fun getAdapters(): ArrayList<BleObject> {
         bleAdapters.clear()
         for (device in scannedDevices) {
-            bleAdapters.add(BLEAdapter(device))
+            bleAdapters.add(BleObject(device))
         }
         return bleAdapters
     }
