@@ -84,20 +84,20 @@ class BleAdapter(bleObjects: ArrayList<BleObject>, context: Context) : BaseAdapt
                 val received_data = characteristic.getStringValue(0).split(":")
                 val key = received_data[0]
                 val value = received_data[1].split("_")[0].toFloat()
-                if (key== ECO2){
-                    Log.i("key", key)
-                    Log.i("VALUE", value.toString())
-                }
                 val outputFile = File(context.cacheDir, "$key.txt")
-                if (outputFile.exists()) {
-                    outputFile.delete()
-                }
                 val inputStream = ByteArrayInputStream(value.toString().toByteArray(UTF_8))
                 val outputStream = FileOutputStream(outputFile)
+                inputStream.use { input ->
+                    outputStream.use { output ->
+                        input.copyTo(output)
+                    }
+                }
+
             }
         }
 
     }
+
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val ble_object = bleObjects[position]
