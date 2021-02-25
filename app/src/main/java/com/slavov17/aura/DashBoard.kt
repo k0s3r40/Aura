@@ -1,8 +1,13 @@
 package com.slavov17.aura
 
+import android.Manifest
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.widget.ImageView
+import androidx.annotation.RequiresApi
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -14,8 +19,10 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.PermissionChecker
 
 class DashBoard : AppCompatActivity() {
+    val myBleManager = BleManager()
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
@@ -42,6 +49,12 @@ class DashBoard : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        Thread{
+            myBleManager.performScan(5000)
+            Log.i("DANG", myBleManager.find_bluno().toString())
+        }.start()
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -53,5 +66,46 @@ class DashBoard : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    override fun onStart() {
+        Log.d("Main activity", "onStart()")
+        super.onStart()
+        when (PermissionChecker.checkSelfPermission(
+            this,
+            Manifest.permission.ACCESS_FINE_LOCATION
+        )) {
+            PackageManager.PERMISSION_GRANTED -> Log.i("ACCESS_FINE_LOCATION", "OK")
+            else -> requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1)
+        }
+        when (PermissionChecker.checkSelfPermission(this, Manifest.permission.BLUETOOTH)) {
+            PackageManager.PERMISSION_GRANTED -> Log.i("BLUETOOTH", "OK")
+            else -> requestPermissions(arrayOf(Manifest.permission.BLUETOOTH), 1)
+        }
+        when (PermissionChecker.checkSelfPermission(this, Manifest.permission.BLUETOOTH_ADMIN)) {
+            PackageManager.PERMISSION_GRANTED -> Log.i("BLUETOOTH_ADMIN", "OK")
+            else -> requestPermissions(arrayOf(Manifest.permission.BLUETOOTH_ADMIN), 1)
+        }
+
+
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        when (requestCode) {
+            1 -> when (grantResults) {
+                intArrayOf(PackageManager.PERMISSION_GRANTED) -> {
+                    Log.d("ScanDevices", "onRequestPermissionsResult(PERMISSION_GRANTED)")
+                }
+                else -> {
+                    Log.d("ScanDevices", "onRequestPermissionsResult(not PERMISSION_GRANTED)")
+                }
+            }
+            else -> super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        }
     }
 }
