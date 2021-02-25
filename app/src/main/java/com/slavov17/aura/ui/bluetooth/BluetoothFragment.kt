@@ -15,7 +15,7 @@ import com.slavov17.aura.R
 import com.slavov17.aura.BLEAdapter
 import com.slavov17.aura.BleManager
 import kotlinx.android.synthetic.main.fragment_bluetooth.*
-import kotlinx.android.synthetic.main.progress_bar.*
+
 
 
 class BluetoothFragment : Fragment() {

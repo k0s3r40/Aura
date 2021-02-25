@@ -21,7 +21,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.PermissionChecker
-import kotlinx.android.synthetic.main.progress_bar.*
+
 
 class DashBoard : AppCompatActivity() {
 
@@ -44,7 +44,7 @@ class DashBoard : AppCompatActivity() {
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow
             ), drawerLayout
         )
-        progress_bar.visibility = View.INVISIBLE
+
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
