@@ -17,6 +17,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.PermissionChecker
+import com.slavov17.aura.ui.dashboard.DashboardFragment
 
 
 class DashBoard : AppCompatActivity() {
@@ -96,4 +97,6 @@ class DashBoard : AppCompatActivity() {
             else -> super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         }
     }
+
+
 }

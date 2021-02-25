@@ -1,24 +1,37 @@
 package com.slavov17.aura
 
-import android.bluetooth.*
+import android.bluetooth.BluetoothGatt
+import android.bluetooth.BluetoothGattCallback
+import android.bluetooth.BluetoothGattCharacteristic
+import android.bluetooth.BluetoothProfile
 import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.TextView
+import com.slavov17.aura.ui.dashboard.DashboardFragment
 import kotlinx.android.synthetic.main.ble_item.view.*
-import kotlinx.android.synthetic.main.fragment_bluetooth.*
-import java.lang.Error
-import java.nio.charset.Charset
+import java.io.ByteArrayInputStream
+import java.io.File
+import java.io.FileOutputStream
 import java.util.*
-import kotlin.collections.ArrayList
+import kotlin.text.Charsets.UTF_8
+
 
 class BleAdapter(bleObjects: ArrayList<BleObject>, context: Context) : BaseAdapter() {
     val BLUNO_SERIAL_UUID = UUID.fromString("0000dfb1-0000-1000-8000-00805f9b34fb")
 
 
     val TAG = "Bluetooth adapter"
+    val ECO2 = "ECO2"
+    val VOC = "VOC"
+    val HUM = "HUM"
+    val PSI = "PSI"
+    val TMP = "TMP"
+
+
     var bleObjects = bleObjects
     var context = context
 
@@ -67,19 +80,24 @@ class BleAdapter(bleObjects: ArrayList<BleObject>, context: Context) : BaseAdapt
             characteristic: BluetoothGattCharacteristic?
         ) {
             super.onCharacteristicChanged(gatt, characteristic)
-//            Log.i("CharacteristicChanged", characteristic.toString())
             if (characteristic != null) {
-
-                Log.i("Value", characteristic.value.toString())
-
-                Log.i("StringValue", characteristic.getStringValue(5))
+                val received_data = characteristic.getStringValue(0).split(":")
+                val key = received_data[0]
+                val value = received_data[1].split("_")[0].toFloat()
+                if (key== ECO2){
+                    Log.i("key", key)
+                    Log.i("VALUE", value.toString())
+                }
+                val outputFile = File(context.cacheDir, "$key.txt")
+                if (outputFile.exists()) {
+                    outputFile.delete()
+                }
+                val inputStream = ByteArrayInputStream(value.toString().toByteArray(UTF_8))
+                val outputStream = FileOutputStream(outputFile)
             }
         }
 
-
     }
-
-
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val ble_object = bleObjects[position]
