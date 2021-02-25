@@ -1,6 +1,6 @@
 package com.slavov17.aura
 
-import android.bluetooth.BluetoothDevice
+import android.bluetooth.*
 import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,19 +9,85 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import kotlinx.android.synthetic.main.ble_item.view.*
 import kotlinx.android.synthetic.main.fragment_bluetooth.*
+import java.lang.Error
+import java.nio.charset.Charset
+import java.util.*
+import kotlin.collections.ArrayList
 
 class BleAdapter(bleObjects: ArrayList<BleObject>, context: Context) : BaseAdapter() {
+    val BLUNO_SERIAL_UUID = UUID.fromString("0000dfb1-0000-1000-8000-00805f9b34fb")
+
+
     val TAG = "Bluetooth adapter"
     var bleObjects = bleObjects
     var context = context
 
+
+    val bleGattCallback: BluetoothGattCallback = object : BluetoothGattCallback() {
+        val TAG = "GattCallBack"
+        override fun onConnectionStateChange(gatt: BluetoothGatt?, status: Int, newState: Int) {
+            super.onConnectionStateChange(gatt, status, newState)
+            if (BluetoothProfile.STATE_CONNECTED == newState) {
+                Log.i(TAG, "IS CONNECTED")
+                gatt?.discoverServices()
+
+            }else{
+                Log.i(TAG, "IS DISCONNECTED")
+            }
+        }
+
+        override fun onServicesDiscovered(gatt: BluetoothGatt?, status: Int) {
+            super.onServicesDiscovered(gatt, status)
+            Log.i("Service", status.toString())
+            for (service in gatt?.services!!){
+                 for (characteristic in service.characteristics){
+                     if (characteristic.uuid ==BLUNO_SERIAL_UUID){
+
+                         Log.i("Gatt", gatt.readDescriptor(characteristic.descriptors[0]).toString())
+
+                         gatt.setCharacteristicNotification(characteristic, true)
+                     }
+                 }
+
+            }
+
+        }
+
+        override fun onCharacteristicRead(
+            gatt: BluetoothGatt?,
+            characteristic: BluetoothGattCharacteristic?,
+            status: Int
+        ) {
+            super.onCharacteristicRead(gatt, characteristic, status)
+            Log.i("Characteristics", characteristic.toString())
+        }
+
+        override fun onCharacteristicChanged(
+            gatt: BluetoothGatt?,
+            characteristic: BluetoothGattCharacteristic?
+        ) {
+            super.onCharacteristicChanged(gatt, characteristic)
+//            Log.i("CharacteristicChanged", characteristic.toString())
+            if (characteristic != null) {
+
+                Log.i("Value", characteristic.value.toString())
+
+                Log.i("StringValue", characteristic.getStringValue(5))
+            }
+        }
+
+
+    }
+
+
+
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val ble_object = bleObjects[position]
-        var myView = LayoutInflater.from(context).inflate(R.layout.ble_item,null, true)
+        var myView = LayoutInflater.from(context).inflate(R.layout.ble_item, null, true)
         myView.ble_mac.text = ble_object.ble_mac()
         myView.ble_name.text = ble_object.ble_name()
         myView.connect_btn.setOnClickListener {
-            connectToDevice(ble_object.device)
+            connectToDevice(ble_object)
         }
         return myView
     }
@@ -38,7 +104,14 @@ class BleAdapter(bleObjects: ArrayList<BleObject>, context: Context) : BaseAdapt
         return bleObjects.size
     }
 
-    fun connectToDevice(device: BluetoothDevice){
-        Log.i(TAG, device.toString())
+    fun connectToDevice(ble_object: BleObject) {
+        Log.i(TAG, ble_object.device.toString())
+        ble_object.device.connectGatt(
+            context,
+            false,
+            bleGattCallback
+        )
     }
+
+
 }

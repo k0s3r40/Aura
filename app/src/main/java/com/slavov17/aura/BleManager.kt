@@ -1,7 +1,6 @@
 package com.slavov17.aura
 
-import android.bluetooth.BluetoothAdapter
-import android.bluetooth.BluetoothDevice
+import android.bluetooth.*
 import android.bluetooth.le.BluetoothLeScanner
 import android.bluetooth.le.ScanCallback
 import android.bluetooth.le.ScanResult
@@ -81,8 +80,5 @@ class BleManager(ble_list: ListView, context: Context) {
         }
         return null
     }
-
-
-
 }
 
