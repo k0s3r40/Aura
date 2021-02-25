@@ -33,8 +33,6 @@ class BluetoothFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         bt_loading.visibility = View.INVISIBLE
 
-        var isScanning: Boolean = false
-
         val myBleManager = BleManager(ble_list, requireContext())
 
         scan_btn.setOnClickListener {
