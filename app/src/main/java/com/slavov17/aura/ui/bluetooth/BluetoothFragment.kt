@@ -38,22 +38,29 @@ class BluetoothFragment : Fragment() {
         val myBleManager = BleManager(ble_list, requireContext())
 
         scan_btn.setOnClickListener {
-            if (!isScanning) {
-                bt_loading.visibility = View.VISIBLE
-                myBleManager.startScan()
-                isScanning = true
-                scan_btn.text = getString(R.string.stop);
-            } else {
-                bt_loading.visibility = View.INVISIBLE
-                myBleManager.stopScan()
-                isScanning = false
-                scan_btn.text = getString(R.string.scan);
-            }
+            scanClickListener(myBleManager)
+        }
+        bt_scan_img.setOnClickListener {
+            scanClickListener(myBleManager)
+        }
+        bt_loading.setOnClickListener {
+            scanClickListener(myBleManager)
         }
 
     }
 
-
+    fun scanClickListener(myBleManager: BleManager) {
+        val isScanning: Boolean = bt_loading.visibility == View.VISIBLE
+        if (!isScanning) {
+            bt_loading.visibility = View.VISIBLE
+            myBleManager.startScan()
+            scan_btn.text = getString(R.string.stop);
+        } else {
+            bt_loading.visibility = View.INVISIBLE
+            myBleManager.stopScan()
+            scan_btn.text = getString(R.string.scan);
+        }
+    }
 
 
 }
