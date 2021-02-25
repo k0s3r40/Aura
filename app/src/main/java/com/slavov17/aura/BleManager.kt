@@ -10,6 +10,7 @@ import android.content.Context
 import android.util.ArraySet
 import android.util.Log
 import java.util.*
+import kotlin.collections.ArrayList
 
 class BleManager() {
     private val TAG = "BleManager"
@@ -17,7 +18,8 @@ class BleManager() {
     private val bluetoothAdapter: BluetoothAdapter? = BluetoothAdapter.getDefaultAdapter()
     private val bluetoothLeScanner: BluetoothLeScanner = bluetoothAdapter!!.bluetoothLeScanner
 
-    //    private var scannedDevices:MutableSet<BluetoothDevice> =  MutableSet()
+
+    var bleAdapters = ArrayList<BLEAdapter>()
     var scannedDevices = mutableSetOf<BluetoothDevice>()
 
     val bleScanner = object : ScanCallback() {
@@ -57,6 +59,14 @@ class BleManager() {
         scannedDevices.clear()
     }
 
+    fun getAdapters(): ArrayList<BLEAdapter> {
+        bleAdapters.clear()
+        for (device in scannedDevices) {
+            bleAdapters.add(BLEAdapter(device))
+        }
+        return bleAdapters
+    }
+
     fun find_bluno(): BluetoothDevice? {
         for (device in scannedDevices) {
             if (device.name == "Bluno") {
@@ -65,6 +75,7 @@ class BleManager() {
         }
         return null
     }
+
 
 
 }
