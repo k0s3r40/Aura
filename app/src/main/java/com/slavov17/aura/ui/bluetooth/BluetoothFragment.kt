@@ -22,10 +22,7 @@ class BluetoothFragment : Fragment() {
         bluetoothViewModel =
             ViewModelProvider(this).get(BluetoothViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_bluetooth, container, false)
-        val textView: TextView = root.findViewById(R.id.text_gallery)
-        bluetoothViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+
         return root
     }
 }
