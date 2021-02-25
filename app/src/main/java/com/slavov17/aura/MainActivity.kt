@@ -14,7 +14,7 @@ import androidx.core.content.PermissionChecker
 
 
 class MainActivity : AppCompatActivity() {
-
+    val TAG: String = "MainActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // TODO: on login ok move to dashboard directly
@@ -38,7 +38,10 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         Log.d("Main activity", "onStart()")
         super.onStart()
-        when (PermissionChecker.checkSelfPermission(this,Manifest.permission.ACCESS_FINE_LOCATION)) {
+        when (PermissionChecker.checkSelfPermission(
+            this,
+            Manifest.permission.ACCESS_FINE_LOCATION
+        )) {
             PackageManager.PERMISSION_GRANTED -> Log.i("ACCESS_FINE_LOCATION", "OK")
             else -> requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1)
         }
@@ -55,7 +58,10 @@ class MainActivity : AppCompatActivity() {
 
     fun init_ble_and_scan() {
         val BleManager = BleManager()
-        BleManager.performScan(10000)
+        Thread{
+            BleManager.performScan(5000)
+        }.start()
+
     }
 
     override fun onRequestPermissionsResult(
