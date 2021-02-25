@@ -9,6 +9,7 @@ import android.bluetooth.le.ScanResult
 import android.content.Context
 import android.util.ArraySet
 import android.util.Log
+import android.view.View
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -31,24 +32,26 @@ class BleManager() {
         }
     }
 
-    private fun startScan() {
+    fun startScan() {
         scannedDevices.clear()
         Log.d(TAG, "SCAN starting")
         bluetoothLeScanner.startScan(bleScanner)
         Log.d(TAG, "SCAN ongoing")
     }
 
-    private fun stopScan() {
+    fun stopScan() {
         Log.d(TAG, "SCAN stopping")
         bluetoothLeScanner.stopScan(bleScanner)
         Log.d(TAG, "SCAN stopped")
         Log.i("DEVICES", scannedDevices.toString())
     }
 
-    fun performScan(seconds: Long) {
+    fun performScan(seconds: Long, view: View) {
+        view.visibility = View.VISIBLE
         startScan()
         Thread.sleep(seconds)
         stopScan()
+        view.visibility = View.INVISIBLE
     }
 
     fun getDevices(): MutableSet<BluetoothDevice> {
