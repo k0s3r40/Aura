@@ -22,7 +22,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.content.PermissionChecker
 
 class DashBoard : AppCompatActivity() {
-    val myBleManager = BleManager()
+
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
@@ -44,12 +44,6 @@ class DashBoard : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
-        Thread{
-            myBleManager.performScan(5000)
-            Log.i("DANG", myBleManager.find_bluno().toString())
-        }.start()
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

@@ -39,5 +39,6 @@
     <string name="ble_name_placeholder">Device name</string>
     <string name="ble_mac_placeholder">Device mac</string>
     <string name="connect">Connect</string>
+    <string name="scan">Scan</string>
 
 </resources>
