@@ -131,10 +131,15 @@ class DashboardFragment : Fragment() {
 
     fun update_gauges(context:Context) {
         for ((key, gauge) in gaugeMap) {
-            val data =  readFileAsLinesUsingReadLines(context.cacheDir.toString()+"/$key.txt")[0]
+            try{
+                val data =  readFileAsLinesUsingReadLines(context.cacheDir.toString()+"/$key.txt")[0]
 
-            gauge.current_value = data.toFloat()
-            gauge.rotate_gauge()
+                gauge.current_value = data.toFloat()
+                gauge.rotate_gauge()
+            }catch (e:Exception){
+                Log.w("BAD", e.toString())
+            }
+
         }
     }
     fun readFileAsLinesUsingReadLines(fileName: String): List<String>
