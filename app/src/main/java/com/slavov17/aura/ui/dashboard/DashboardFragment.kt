@@ -57,7 +57,8 @@ class DashboardFragment : Fragment() {
             green_value = 0F..399F,
             current_value = 0F,
             min_value = 0F,
-            max_value = 5000F
+            max_value = 5000F,
+            gauge_text_value = eco2_gauge_value
         )
 
         voc_gauge = Gauge(
@@ -70,7 +71,8 @@ class DashboardFragment : Fragment() {
             green_value = 0F..0.29F,
             current_value = 0F,
             min_value = 0F,
-            max_value = 3F
+            max_value = 3F,
+            gauge_text_value = voc_gauge_value
         )
 
         humidity_gauge = Gauge(
@@ -83,7 +85,8 @@ class DashboardFragment : Fragment() {
             green_value = 30F..50F,
             current_value = 0F,
             min_value = 0F,
-            max_value = 100F
+            max_value = 100F,
+            gauge_text_value = hum_gauge_value
         )
 
         pressure_gauge = Gauge(
@@ -96,7 +99,8 @@ class DashboardFragment : Fragment() {
             green_value = 0F..1014F,
             current_value = 0F,
             min_value = 0F,
-            max_value = 3000F
+            max_value = 3000F,
+            gauge_text_value = pressure_gauge_value
         )
 
 

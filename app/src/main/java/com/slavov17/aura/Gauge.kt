@@ -1,4 +1,5 @@
 import android.widget.ImageView
+import android.widget.TextView
 
 class Gauge(val arrow: ImageView,
             val background: ImageView,
@@ -9,7 +10,8 @@ class Gauge(val arrow: ImageView,
             val green_value: ClosedRange<Float>,
             var current_value: Float,
             val min_value: Float,
-            val max_value: Float) {
+            val max_value: Float,
+            val gauge_text_value:TextView) {
 
     val gauge_green = 0xFF66C2A5.toInt()
     val gauge_yellow = 0xFFFDD448.toInt()
@@ -26,10 +28,12 @@ class Gauge(val arrow: ImageView,
         return base_rotation+(current_value * ratio)
     }
 
+
     fun rotate_gauge(){
         arrow.rotation = calculate_rotation()
         arrow.setColorFilter(get_color());
         background.setColorFilter(get_color());
+        gauge_text_value.text =current_value.toString()
     }
 
 
