@@ -2,13 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.slavov17.aura">
 
-   <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-    <uses-permission android:name="android.permission.BLUETOOTH"/>
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
-
-    <!-- Required only if your app isn't using the Device Companion Manager. -->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -20,8 +20,8 @@
         <activity
             android:name=".DashBoard"
             android:label="@string/title_activity_dashboard"
-            android:theme="@style/Theme.Aura.NoActionBar"></activity>
-        <activity android:name=".MainActivity">
+            android:theme="@style/Theme.Aura.NoActionBar">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

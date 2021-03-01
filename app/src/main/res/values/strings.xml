@@ -36,4 +36,10 @@
     <string name="menu_dashboard">Dashboard</string>
     <string name="menu_bluetooth">Bluetooth</string>
 
+    <string name="ble_name_placeholder">Device name</string>
+    <string name="ble_mac_placeholder">Device mac</string>
+    <string name="connect">Connect</string>
+    <string name="scan">Scan</string>
+    <string name="stop">Stop</string>
+
 </resources>
