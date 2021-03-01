@@ -50,21 +50,21 @@ class DashboardFragment : Fragment() {
         eco_2_gauge = Gauge(
             arrow = eco2_arrow_canvas,
             background = eco2_gauge_back,
-            gauge_name = "eCO2",
-            red_value = 2000F..5000F,
-            orange_value = 1000F..1999F,
-            yellow_value = 400F..999F,
-            green_value = 0F..399F,
+            gauge_name = "AQ",
+            red_value = 41F..100F,
+            orange_value = 31F..40F,
+            yellow_value = 21F..30F,
+            green_value = 0F..20F,
             current_value = 0F,
             min_value = 0F,
-            max_value = 5000F,
+            max_value = 100F,
             gauge_text_value = eco2_gauge_value
         )
 
         voc_gauge = Gauge(
             arrow = voc_arrow_canvas,
             background = voc_gauge_back,
-            gauge_name = "VOC",
+            gauge_name = "Air Resistance",
             red_value = 1F..3F,
             orange_value = 0.5F..0.99F,
             yellow_value = 0.3F..0.49F,
@@ -144,6 +144,12 @@ class DashboardFragment : Fragment() {
                 Log.w("BAD", e.toString())
             }
 
+        }
+        try{
+        val data =  readFileAsLinesUsingReadLines(context.cacheDir.toString()+"/TMP.txt")[0]
+        temp_gauge_value.text =data + "°"
+        }catch (e:Exception){
+            Log.w("BAD", e.toString())
         }
     }
     fun readFileAsLinesUsingReadLines(fileName: String): List<String>
